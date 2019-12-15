@@ -30,7 +30,7 @@
               <span class="float-left">
                 ₦
                 {{
-                product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+                  product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
                 }}
               </span>
               <span class="float-right">
@@ -106,6 +106,7 @@ export default {
   methods: {
     addToCart(product) {
       this.$store.commit('addToCart', product);
+      alert('item added to cart');
     },
   },
 };
