@@ -4,7 +4,7 @@ module.exports = {
       registry: undefined,
       awsProfile: 'default',
       region: 'us-east-1',
-      bucket: 'greatpapistore',
+      bucket: 'yaaga-papistore',
       createBucket: true,
       staticHosting: true,
       staticIndexPage: 'index.html',
