@@ -1,6 +1,6 @@
 <template>
   <mdb-navbar expand="large" dark color="cyan">
-    <mdb-navbar-brand>PapiStore</mdb-navbar-brand>
+    <mdb-navbar-brand to="/">PappyStore</mdb-navbar-brand>
     <mdb-navbar-toggler>
       <mdb-navbar-nav right>
         <mdb-nav-item to="/" active>Home</mdb-nav-item>

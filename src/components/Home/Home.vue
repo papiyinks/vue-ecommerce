@@ -52,7 +52,9 @@
     </h4>
     <mdb-row class="mb-5 mt-2">
       <mdb-col class="mt-4" sm="6" md="3" v-for="product in products.slice(-4)" :key="product.id">
-        <img class="ImgP" v-bind:src="product.image" alt />
+        <router-link :to="{ path: '/product/' + product.id }">
+          <img class="ImgP" v-bind:src="product.image" alt />
+        </router-link>
         <div class="text-center mt-2">
           <strong>{{product.name}}</strong>
         </div>
@@ -60,7 +62,6 @@
     </mdb-row>
   </mdb-container>
 </template>
-[Vue warn]: Error in render: "TypeError: Cannot read property 'slice' of null"
 <script>
 import axios from 'axios';
 import { mdbContainer, mdbRow, mdbCol, mdbCarousel } from 'mdbvue';
@@ -103,6 +104,11 @@ export default {
         console.log(error);
       });
   },
+  // methods: {
+  //   onShow() {
+  //     this.$router.push('/product/' + product.id);
+  //   },
+  // },
 };
 </script>
 

@@ -2,7 +2,7 @@
   <div v-if="$store.state.cart.length > 0" class="pub">
     <mdb-card>
       <mdb-card-body>
-        <mdb-tbl>
+        <mdb-tbl responsive>
           <mdb-tbl-head color="mdb-color" class="lighten-5">
             <tr>
               <th></th>
