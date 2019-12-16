@@ -60,7 +60,7 @@
     </mdb-row>
   </mdb-container>
 </template>
-
+[Vue warn]: Error in render: "TypeError: Cannot read property 'slice' of null"
 <script>
 import axios from 'axios';
 import { mdbContainer, mdbRow, mdbCol, mdbCarousel } from 'mdbvue';
@@ -73,7 +73,7 @@ export default {
   },
   data() {
     return {
-      products: null,
+      products: [],
       items: [
         {
           img: true,

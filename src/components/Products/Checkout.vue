@@ -1,6 +1,47 @@
 <template>
-  <mdb-container v-if="$store.state.cart.length > 0">
+  <mdb-container v-if="$store.state.cart.length > 0" class="pub">
     <mdb-row>
+      <mdb-col md="6">
+        <h4 class="text-center mt-4">Order Summary</h4>
+        <mdb-card-body>
+          <mdb-tbl>
+            <mdb-tbl-head color="mdb-color" class="lighten-5">
+              <tr>
+                <th>
+                  <strong>Product</strong>
+                </th>
+                <th>
+                  <strong>QTY</strong>
+                </th>
+                <th>
+                  <strong>Amount</strong>
+                </th>
+              </tr>
+            </mdb-tbl-head>
+            <mdb-tbl-body v-for="item in $store.state.cart" :key="item.id">
+              <tr>
+                <td>
+                  <h5>
+                    <strong>{{item.name}}</strong>
+                  </h5>
+                </td>
+                <td class="pl-3">{{item.quantity}}</td>
+                <td class="pl-3">
+                  <strong>₦{{(item.quantity * item.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}}</strong>
+                </td>
+              </tr>
+            </mdb-tbl-body>
+          </mdb-tbl>
+          <h4 class="mt-4 text-center">
+            <strong>Total: ₦{{ totalPrice }}</strong>
+          </h4>
+          <div class="mt-4 pl-3">
+            <router-link to="/cart">
+              <a>MODIFY CART</a>
+            </router-link>
+          </div>
+        </mdb-card-body>
+      </mdb-col>
       <mdb-col md="6" class="mt-4">
         <h4 class="text-center mt-1">Checkout</h4>
         <form @submit.prevent="onClearCart">
@@ -50,47 +91,6 @@
             <mdb-btn type="submit" color="success">Confirm Order</mdb-btn>
           </div>
         </form>
-      </mdb-col>
-      <mdb-col md="6">
-        <h4 class="text-center mt-4">Order Summary</h4>
-        <mdb-card-body>
-          <mdb-tbl>
-            <mdb-tbl-head color="mdb-color" class="lighten-5">
-              <tr>
-                <th>
-                  <strong>Product</strong>
-                </th>
-                <th>
-                  <strong>QTY</strong>
-                </th>
-                <th>
-                  <strong>Amount</strong>
-                </th>
-              </tr>
-            </mdb-tbl-head>
-            <mdb-tbl-body v-for="item in $store.state.cart" :key="item.id">
-              <tr>
-                <td>
-                  <h5>
-                    <strong>{{item.name}}</strong>
-                  </h5>
-                </td>
-                <td class="pl-3">{{item.quantity}}</td>
-                <td class="pl-3">
-                  <strong>₦{{(item.quantity * item.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}}</strong>
-                </td>
-              </tr>
-            </mdb-tbl-body>
-          </mdb-tbl>
-          <h4 class="mt-4 text-center">
-            <strong>Total: ₦{{ totalPrice }}</strong>
-          </h4>
-          <div class="mt-4 pl-3">
-            <router-link to="/cart">
-              <a>MODIFY CART</a>
-            </router-link>
-          </div>
-        </mdb-card-body>
       </mdb-col>
     </mdb-row>
   </mdb-container>
@@ -145,3 +145,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.pub {
+  padding-bottom: 6rem;
+}
+</style>

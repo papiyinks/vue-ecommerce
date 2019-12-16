@@ -1,17 +1,18 @@
 <template>
-  <mdb-container>
+  <mdb-container class="pub">
     <mdb-row>
       <mdb-col class="mt-4" md="6">
         <h3>
           <strong>{{ name }}</strong>
         </h3>
-        <p><strong>Brand: </strong>{{ brand }}</p>
+        <p>
+          <strong>Brand:</strong>
+          {{ brand }}
+        </p>
         <div>
           <img alt v-bind:src="image" class="img-fluid w-75 ImgP" />
         </div>
-        <p class="pt-3">
-          ₦ {{ price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') }}
-        </p>
+        <p class="pt-3">₦ {{ price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') }}</p>
       </mdb-col>
       <mdb-col class="mt-md-5" md="6">
         <p class="text-justify mt-5">
@@ -98,5 +99,8 @@ export default {
 .ImgP {
   min-width: 335px;
   min-height: 335px;
+}
+.pub {
+  padding-bottom: 6rem;
 }
 </style>
